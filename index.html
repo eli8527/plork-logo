@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PLOrk Logo Generator</title>
+<style>
+body, html {
+  margin: 0;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100vw;
+}
+#logo {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  height: 200px;
+}
+#logo-image {
+  height: 100%;
+}
+
+#colophon {
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+  <div id="logo"><img src="" id="logo-image"></div>
+  <div id="buttons">
+    <button type="button" onclick="generate()">Generate</button>
+    <a href="#" id="download-link" download><button type="button">Download</button></a>
+  </div>
+  <div id="colophon">
+    <br /><br />
+    <a href="plork-identity-program.pdf">PLOrk Identity Program</a><br /><br />
+    Designed and maintained by Eric Li '18.<br />
+    ericyoungli+plork@gmail.com
+  </div>
+</div>
+
+<script>
+
+window.onload = generate;
+
+function generate() {
+  var numFiles = 57;
+  var file = Math.floor(Math.random() * numFiles)+1;
+  var fn = 'logos/plork-' + file + '.svg';
+  document.getElementById("logo-image").src = fn;
+  document.getElementById("download-link").href = fn;
+}
+</script>
+</body>
+</html>
